@@ -1,12 +1,14 @@
 from parser.parser import Parser
 from parser.tools import clear_text
 
+
 def trf_parser(**params):
 
     parser = Parser(
-        name='Infomir',
-        url='http://www.infomir.com.ua/tariff/internet/',
-        habitation=params['habitation'])
+        name="Infomir",
+        url="http://www.infomir.com.ua/tariff/internet/",
+        habitation=params["habitation"],
+    )
 
     tarif_dic = {}
     all_tarifs = []
@@ -15,34 +17,34 @@ def trf_parser(**params):
         all_tarifs = []
         coll_cntr = 1
         while coll_cntr < 4:
-            rows = table.findAll('tr')
+            rows = table.findAll("tr")
             fs_row = rows[0]
-            fs_col = fs_row.findAll('td')
+            fs_col = fs_row.findAll("td")
             fs_col = fs_col[coll_cntr].text
             title = fs_col
 
             fs_row = rows[1]
-            fs_col = fs_row.findAll('td')
+            fs_col = fs_row.findAll("td")
             fs_col = fs_col[coll_cntr].text
             speed = fs_col
 
             fs_row = rows[price_position]
-            fs_col = fs_row.findAll('td')
+            fs_col = fs_row.findAll("td")
             fs_col = fs_col[coll_cntr]
-            fs_col = fs_row.findAll('div')
+            fs_col = fs_row.findAll("div")
             fs_col = fs_col[coll_cntr].text
             price = fs_col
 
             coll_cntr += 1
 
-            tarif_dic = {'title':title, 'speed':speed, 'price':price}
+            tarif_dic = {"title": title, "speed": speed, "price": price}
             all_tarifs.append(tarif_dic)
         return all_tarifs
 
     soup = parser.parse()
-    table = soup.find('table')
-    table = table.find('table')
-    table = table.findAll('table')
+    table = soup.find("table")
+    table = table.find("table")
+    table = table.findAll("table")
 
     first_table = table[5]
     fs_price_position = 9
