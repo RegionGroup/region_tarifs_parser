@@ -1,5 +1,7 @@
 import requests
 from bs4 import BeautifulSoup as bs
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.retry import Retry
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -45,11 +47,17 @@ class Parser(object):
         self.__tarifs = all_tarifs
 
     def parse(self):
+
         session = requests.Session()
+        retry = Retry(connect=3, backoff_factor=0.5)
+        adapter = HTTPAdapter(max_retries=retry)
+        session.mount("http://", adapter)
+        session.mount("https://", adapter)
+
         try:
-            request = requests.get(self.get_url(), headers=headers)
+            request = session.get(self.get_url(), headers=headers)
         except:
-            request = requests.get(self.get_url(), headers=headers, verify=False)
+            request = session.get(self.get_url(), headers=headers, verify=False)
         if request.status_code == 200:
             return bs(request.content, "lxml")
 
