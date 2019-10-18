@@ -75,7 +75,7 @@ class Prostor(DinamicParser):
             loc, generated_html = self.pick_city(browser, "Марьивка", "7285")
             competitor += loc
         elif city == "Новоселівка":
-            loc, generated_html = self.pick_city(browser, "Новоселівка", "9725")
+            loc, generated_html = self.pick_city(browser, "Новоселівка", "10056")
             competitor += loc
         elif city == "Остров":
             loc, generated_html = self.pick_city(browser, "Остров", "7288")

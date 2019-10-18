@@ -4,3 +4,4 @@ venv
 __pycache__
 driver/chromedriver
 driver/chromedriver.exe
+note.txt
