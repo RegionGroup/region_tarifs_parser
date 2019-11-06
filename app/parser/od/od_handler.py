@@ -32,19 +32,21 @@ def add_error(error_log):
 def get_parser_instance(
     parser, locality=None, cnct_type=None, habitation=None, coordinates=None
 ):
-    # try:
-    parserInst = parser.trf_parser(
-        locality=locality,
-        cnct_type=cnct_type,
-        habitation=habitation,
-        coordinates=coordinates,
-    )
-    if Parser in parserInst.__class__.__mro__:
-        return parserInst
-    else:
-        add_error(f'Парсер "{parser.__name__}" Error "parserInst is not Parser-class"')
-    # except Exception as e:
-    #     add_error(f'Парсер "{parser.__name__}" вернул ошибку: {e}')
+    try:
+        parserInst = parser.trf_parser(
+            locality=locality,
+            cnct_type=cnct_type,
+            habitation=habitation,
+            coordinates=coordinates,
+        )
+        if Parser in parserInst.__class__.__mro__:
+            return parserInst
+        else:
+            add_error(
+                f'Парсер "{parser.__name__}" Error "parserInst is not Parser-class"'
+            )
+    except Exception as e:
+        add_error(f'Парсер "{parser.__name__}" вернул ошибку: {e}')
 
 
 def write_to_gdoc(parserInst):
