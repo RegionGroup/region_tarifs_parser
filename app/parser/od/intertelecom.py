@@ -28,6 +28,13 @@ class Intertelecom(DinamicParser):
         )
         browser.get(self.get_url())
         sleep(delay)
+        try:
+            close_button = browser.find_element_by_xpath(
+                '//button[@class="close"]'
+            ).click()
+        except:
+            pass
+        sleep(delay)
         button = browser.find_element_by_xpath(
             '//button[@class="btn dropdown-toggle btn-default"]'
         ).click()
