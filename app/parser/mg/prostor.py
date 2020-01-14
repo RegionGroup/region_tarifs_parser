@@ -35,6 +35,7 @@ class Prostor(DinamicParser):
             chrome_options=options, executable_path=conf.PATH_TO_CHROMEDRIVER
         )
         browser.get(self.get_url())
+
         sleep(20)
         try:
             close = browser.find_element_by_xpath(
@@ -43,11 +44,13 @@ class Prostor(DinamicParser):
         except Exception as e:
             pass
         sleep(pr_delay)
+
         try:
             close = browser.find_element_by_id("confirm-town-times").click()
         except Exception as e:
             pass
         sleep(5)
+
         try:
             close = browser.find_element_by_xpath(
                 '//span[@class="b24-widget-button-popup-btn-hide"]'
@@ -55,6 +58,15 @@ class Prostor(DinamicParser):
         except Exception as e:
             pass
         sleep(pr_delay)
+
+        try:
+            close = browser.find_element_by_xpath(
+                '//div[@class="cp-overlay-close cp-outside-close cp-image-close  cp-adjacent-right"]'
+            ).click()
+        except Exception as e:
+            pass
+        sleep(pr_delay)
+
         pick = browser.find_element_by_xpath('//h5[@class="town-text-pick"]//a').click()
         sleep(pr_delay)
         ul = browser.find_element_by_xpath(

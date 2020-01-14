@@ -33,7 +33,10 @@ def trf_parser(**params):
     all_tarifs_tmp = extract_data(div)
     all_tarifs += all_tarifs_tmp
     div = soup.find('div', id='tab_odessa_copper_complex_2019')
-    all_tarifs_tmp = extract_data(div)
+    try:
+        all_tarifs_tmp = extract_data(div)
+    except:
+        pass
     all_tarifs += all_tarifs_tmp
 
     parser.set_tarifs(all_tarifs)

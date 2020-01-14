@@ -15,7 +15,8 @@ def trf_parser(**params):
 
     soup = parser.parse()
     table = soup.find("table")
-    columns = table.findAll("div", attrs="column")
+    article = table.find("article")
+    columns = article.findAll("div", attrs="column")
 
     for col in columns:
         title_div = col.find("div", attrs="header-tariff-name")
@@ -27,7 +28,9 @@ def trf_parser(**params):
             .find_next("div")
             .find_next("div")
         )
-        speed = speed_div.find("strong").text
+        speed = speed_div.find("strong")
+        if speed:
+            speed = speed.text
         tarif_dic = {"title": title, "speed": speed, "price": price}
         all_tarifs.append(tarif_dic)
 
