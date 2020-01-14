@@ -2,7 +2,7 @@ PATH_TO_CRED = "cred/creds.json"
 
 PATH_TO_CHROMEDRIVER = "driver/chromedriver"
 
-BD_GDOC = "1PYr9ZeAB3CfPvEb-yZA7qn5QWS1tgEIFpANYimr4Txg"
-KP_GDOC = "1JsZw-GO9-35kmSb6xjdU7LpmZFLaj4vYOV9zL7GWmmU"
-MG_GDOC = "12gc85zULHIevGiTaWnV0lax6CHHD_9OY2NeTL09vqWs"
-OD_GDOC = "1A_0WOhgGCFgYJzbziB8v9OQ8C7p2pmdaRiX8p6D5Uhc"
+BD_GDOC = "1PuyWw1gtTJMis9n4Vvm2kCv_aOWGkBMEtFerfFhquqw"
+KP_GDOC = "1b_3M2fbiDmIYvIwdDnAumQs2iAtlr40MNC_8jR_1Deo"
+MG_GDOC = "11XNVyZyuSbHw0r5bB63wzxPxv8WXvUmvIu0CFbLaXm4"
+OD_GDOC = "11gpQKdIayEe8TZHiFIALetJIsm6bVjN_znwPizLMLdk"

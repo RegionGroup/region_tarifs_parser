@@ -22,7 +22,6 @@ class Gdoc(object):
         creds = ServiceAccountCredentials.from_json_keyfile_name(self.path_to_cred, scope)
         client = gspread.authorize(creds)
         sheet = client.open_by_key(doc_id).sheet1
-        data = sheet.get_all_records()
 
         # Проверка есть ли в документе такой конкурент
         try:
