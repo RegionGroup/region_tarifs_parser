@@ -92,6 +92,9 @@ class Prostor(DinamicParser):
         elif city == "Остров":
             loc, generated_html = self.pick_city(browser, "Остров", "7288")
             competitor += loc
+        elif city == "Марганец":
+            loc, generated_html = self.pick_city(browser, "Марганец", "14125")
+            competitor += loc
         else:
             print("Не верный город")
         return bs(generated_html, "lxml"), competitor

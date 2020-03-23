@@ -41,11 +41,9 @@ def write_to_gdoc(parserInst):
 
 def main():
 
-    # СТком
-    stcom_inst = get_parser_instance(stcom, habitation="aprtmnt")
-    write_to_gdoc(stcom_inst) if stcom_inst else print(f"{stcom.__name__} Error")
-    stcom_inst = get_parser_instance(stcom, habitation="house")
-    write_to_gdoc(stcom_inst) if stcom_inst else print(f"{stcom.__name__} Error")
+    # Prostor/STcom - Марганец
+    prostor_inst = get_parser_instance(prostor, cnct_type="cabel", locality="Марганец")
+    write_to_gdoc(prostor_inst) if prostor_inst else print(f"{prostor.__name__} Error")
 
     # Kyivstar-fmc
     kyivstarfmc_inst = get_parser_instance(kyivstarfmc)
