@@ -3,7 +3,6 @@ import conf
 from parser.parser import Parser, DinamicParser
 from gdoc.gdoc import Gdoc
 
-import parser.mg.stcom as stcom
 import parser.mg.kyivstarfmc as kyivstarfmc
 import parser.mg.prostor as prostor
 
